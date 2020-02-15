@@ -1,0 +1,1 @@
+git@github.com:SwingDev/table-soccer-backend.git backend
