@@ -1,1 +1,2 @@
 git@github.com:SwingDev/table-soccer-backend.git backend
+git@github.com:SwingDev/table-soccer-frontend.git frontend
