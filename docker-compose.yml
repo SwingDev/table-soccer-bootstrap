@@ -1,15 +1,15 @@
 version: "3.7"
 services:
-  # frontend:
-  #   restart: unless-stopped
-  #   image: table-soccer-frontend
-  #   build:
-  #     context: ./frontend
-  #     target: dev
-  #   volumes:
-  #     - "./frontend/src:/app/src"
-  #   ports:
-      # - "127.0.0.1:4200:4200"
+  frontend:
+    restart: unless-stopped
+    image: table-soccer-frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    volumes:
+      - "./frontend/src:/app/src"
+    ports:
+      - "127.0.0.1:4200:4200"
 
   backend:
     command: npm run start:dev
