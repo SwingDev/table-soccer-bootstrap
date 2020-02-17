@@ -1,4 +1,29 @@
-version: '2'
+version: "3.7"
 services:
-  test:
-    image: hello-world
+  # frontend:
+  #   restart: unless-stopped
+  #   image: table-soccer-frontend
+  #   build:
+  #     context: ./frontend
+  #     target: dev
+  #   volumes:
+  #     - "./frontend/src:/app/src"
+  #   ports:
+      # - "127.0.0.1:4200:4200"
+
+  backend:
+    command: npm run start:dev
+    restart: unless-stopped
+    image: table-soccer-backend
+    build:
+      context: ./backend
+      target: dev
+    environment:
+      CLIENT_EMAIL: firebase-adminsdk-y4dxc@table-soccer-d5bed.iam.gserviceaccount.com
+      PRIVATE_KEY: ${PRIVATE_KEY}
+      PROJECT_ID: table-soccer-d5bed
+      PORT: 3000
+    ports:
+      - "127.0.0.1:3000:3000"
+    volumes:
+      - "./backend/src:/app/src"
